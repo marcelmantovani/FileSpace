@@ -9,12 +9,12 @@ formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
 
 fh = logging.FileHandler('log_filename.log')
-fh.setLevel(logger.getEffectiveLevel)
+fh.setLevel(logging.DEBUG)
 fh.setFormatter(formatter)
 logger.addHandler(fh)
 
 ch = logging.StreamHandler()
-ch.setLevel(logger.getEffectiveLevel)
+ch.setLevel(logging.DEBUG)
 ch.setFormatter(fh)
 logger.addHandler(ch)
 
