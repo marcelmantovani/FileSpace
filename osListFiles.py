@@ -13,7 +13,7 @@ import os.path
 #
 #print tot_size/1024
 
-dname = r'C:\Marcel\python\projects\FileSpace'
+dname = r'C:\Marcel\temp'
 
 def visit (arg, dirname, names):
     print dirname, arg
@@ -24,6 +24,13 @@ def visit (arg, dirname, names):
             print '  %s/' % name
         else:
             print ' %s \t %s ' % (name, (os.path.getsize(subname)))
+            print 'parent directory %s ' % os.path.dirname( subname)
     print
     
-os.path.walk(dname, visit, '(User data)')
+def main():
+    os.path.walk(dname, visit, '(User data)')
+
+
+if __name__ == '__main__':
+#    sys.exit(main())
+    main()
