@@ -1,3 +1,5 @@
+#!/usr/local/bin/python
+
 import sys
 #from path import Path
 import os.path
@@ -16,7 +18,7 @@ import os.path
 dname = r'C:\Marcel\temp'
 
 def visit (arg, dirname, names):
-    #print dirname, arg
+    
     for name in names:
         subname = os.path.join(dirname, name)
         
@@ -28,6 +30,7 @@ def visit (arg, dirname, names):
     #print
     
 def main():
+    print 'dirname, filename, size'
     os.path.walk(dname, visit, '(User data)')
 
 
