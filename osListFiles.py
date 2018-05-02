@@ -16,16 +16,16 @@ import os.path
 dname = r'C:\Marcel\temp'
 
 def visit (arg, dirname, names):
-    print dirname, arg
+    #print dirname, arg
     for name in names:
         subname = os.path.join(dirname, name)
         
-        if os.path.isdir(subname):
-            print '  %s/' % name
-        else:
-            print ' %s \t %s ' % (name, (os.path.getsize(subname)))
-            print 'parent directory %s ' % os.path.dirname( subname)
-    print
+        if not (os.path.isdir(subname)):
+        #    print '  %s/' % name
+        #else:
+            print '%s, %s, %s ' % (os.path.dirname( subname), name, (os.path.getsize(subname)))
+            #print 'parent directory %s ' % os.path.dirname( subname)
+    #print
     
 def main():
     os.path.walk(dname, visit, '(User data)')
