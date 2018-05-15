@@ -23,7 +23,7 @@ def visit (arg, dirname, names):
     for name in names:
         subname = os.path.join(dirname, name)
         
-        if not (os.path.isdir(subname)):
+        if not (os.path.isdir(subname)) and os.path.exists(subname):
             statDetail = os.stat(subname)
             strmtime = converTimeToStr(statDetail.st_mtime)
             print '%s, %s, %s, %s, %s, %s, %s ' % (now, os.path.dirname( subname), name, (os.path.getsize(subname)) ,strmtime, statDetail.st_uid, statDetail.st_gid )
