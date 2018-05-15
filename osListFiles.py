@@ -15,9 +15,6 @@ import os.path
 #        tot_size += files.size
 #
 #print tot_size/1024
-
-dname = r'C:\Marcel\temp'
-
 def converTimeToStr(in_time):
     return time.strftime("%m/%d/%Y %H:%M:%S", time.localtime(in_time))
 
@@ -29,13 +26,15 @@ def visit (arg, dirname, names):
         if not (os.path.isdir(subname)):
             statDetail = os.stat(subname)
             strmtime = converTimeToStr(statDetail.st_mtime)
-            print '%s, %s, %s, %s, %s, %s ' % (os.path.dirname( subname), name, (os.path.getsize(subname)) ,strmtime, statDetail.st_uid, statDetail.st_gid )
+            print '%s, %s, %s, %s, %s, %s, %s ' % (now, os.path.dirname( subname), name, (os.path.getsize(subname)) ,strmtime, statDetail.st_uid, statDetail.st_gid )
             
     
 def main():
-    print 'dirname, filename, size, mtime, uid, gid'
+    print 'timenow, dirname, filename, size, mtime, uid, gid'
     os.path.walk(dname, visit, '(User data)')
 
+dname = r'C:\Marcel\temp'
+now = converTimeToStr(time.time())
 
 if __name__ == '__main__':
     main()
